@@ -1,0 +1,10 @@
+class Solution:
+    def stringShift(self, s: str, shift: List[List[int]]) -> str:
+        delta = 0
+
+        for direction,steps in shift:
+            delta+= (steps if direction==0 else -steps)
+
+        delta = delta%len(s)
+        
+        return s[delta:]+s[:delta]
